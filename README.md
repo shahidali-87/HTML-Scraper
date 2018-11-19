@@ -79,3 +79,32 @@ We will assess the task based on the following criteria:
 - Following your instructions gives the correct JSON output.
 - Unit or Behavioural Testing, including error handling.
 - Anything above and beyond.
+
+# Running the Application
+
+#### Maven
+- Clean target folder, compile sources, run tests
+```
+mvn clean install
+```
+- Start up app
+
+```
+mvn spring-boot:run
+```
+- Run tests
+```
+mvn test
+```
+
+### IDE
+- Select "Run -> Run Configurations" from the menu (run App.java in src/main/java)
+- Run as either Java Application or Spring Boot App
+
+# Further Development
+Given more time on this project I would look into:
+- Resolving the issue with one of the products (Sainsbury's Blackcurrants 150g) where the description is incorrect
+- Add tests to test the json objects to be output
+- Change the structure of the code - the logic around HTMLScrapper in particular could be improved and more abstract
+
+
