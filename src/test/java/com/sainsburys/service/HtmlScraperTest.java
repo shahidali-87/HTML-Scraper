@@ -31,28 +31,6 @@ public class HtmlScraperTest {
 	
 	public static String URL = Constants.URL;
 	
-	@Before
-	public void setUp() throws Exception{
-		
-		title = "Blueberries and stuff 400g";
-		unit_price = new BigDecimal(10.44);
-		kcal_per_100g = OptionalInt.of(100);
-		description = "this is a description";
-		
-		Product product1 = new Product(title, unit_price, kcal_per_100g, description);
-		
-		products.add(product1);
-		
-		title2 = "some title";
-		unit_price2 = new BigDecimal(50.5);
-		kcal_per_100g2 = OptionalInt.empty();
-		description2 = "blueberries desc";
-		
-		Product product2 = new Product(title2, unit_price2, kcal_per_100g2, description2);
-		
-		products.add(product2);
-	}
-	
 	@Test
     public void testGetProductsCorrectValidURL()
     {
@@ -79,7 +57,7 @@ public class HtmlScraperTest {
 		HtmlScraper.getProducts("fqfwqdfwqf");
     }
 	
-	@Test(expected = java.lang.IllegalArgumentException.class) //put null pointer, commit, then switch
+	@Test(expected = java.lang.IllegalArgumentException.class)
     public void testGetProductsNullURL()
     {
 		HtmlScraper.getProducts(null);
