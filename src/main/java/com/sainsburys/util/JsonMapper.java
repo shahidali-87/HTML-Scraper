@@ -12,6 +12,7 @@ import com.sainsburys.model.Product;
 public class JsonMapper {
 
 	public static String jsonMapper(List<Product> products){
+		
 		JsonArray jsonProducts = new JsonArray();
 		JsonObject results = new JsonObject();
 		JsonObject jsonTotal = new JsonObject();
@@ -34,11 +35,11 @@ public class JsonMapper {
 		List<BigDecimal> totals = CalculateTotal.calculateTotalGross(products);
 		BigDecimal grossTotal = totals.get(0);
 		BigDecimal vatTotal = totals.get(1);
-        jsonTotal.addProperty("gross",grossTotal); 
-        jsonTotal.addProperty("vat",vatTotal); 
-        
-        results.add("results", jsonProducts);
-        results.add("total", jsonTotal);
+		jsonTotal.addProperty("gross",grossTotal); 
+		jsonTotal.addProperty("vat",vatTotal); 
+		
+		results.add("results", jsonProducts);
+		results.add("total", jsonTotal);
         
         return new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(results);		
 	}
