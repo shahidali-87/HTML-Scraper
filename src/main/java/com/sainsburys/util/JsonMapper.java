@@ -8,6 +8,6 @@ public class JsonMapper {
 
 	public static String jsonMapper(List<Product> products){
 
-        return "";	
+        return null;	
 	}
 }

@@ -12,11 +12,15 @@ public class CalculateTotal {
 	public static List<BigDecimal> calculateTotalGross(List<Product> products){
         List<BigDecimal> calculatedTotals = new ArrayList<BigDecimal>();
         
-		BigDecimal gross = BigDecimal.valueOf(0);
-		BigDecimal vat = BigDecimal.valueOf(0);
-		
-		calculatedTotals.add(gross);
-		calculatedTotals.add(vat);
+		BigDecimal total = products.stream()
+                .map(Product::getUnit_price)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        calculatedTotals.add(total
+        		.setScale(2, RoundingMode.UP));
+        
+        calculatedTotals.add(total
+        		.multiply(BigDecimal.valueOf(Constants.PRODUCT_VAT)).setScale(2, RoundingMode.UP));
         
         return calculatedTotals;
 	}
