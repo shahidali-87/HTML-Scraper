@@ -9,8 +9,10 @@ public class writeToFile {
 
     public static void writeToJsonFile(String data) {   
 
-		try (FileWriter file = new FileWriter(outputFile)){
+		try {
+			FileWriter file = new FileWriter(outputFile)
 			file.write(data);
+			file.close();
 		}
 		catch (IOException e) {
 			e.printStackTrace();
