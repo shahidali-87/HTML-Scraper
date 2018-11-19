@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.sainsburys.model.Product;
 import com.sainsburys.service.HtmlScraper;
 import com.sainsburys.util.Constants;
+import com.sainsburys.util.JsonMapper;
 
 @SpringBootApplication
 public class App 
@@ -17,5 +18,7 @@ public class App
     	SpringApplication.run(App.class, args);
     	
     	List<Product> products = HtmlScraper.getProducts(Constants.URL);
+        String result = JsonMapper.jsonMapper(products);
+        System.out.println(result);
     }
 }
