@@ -10,7 +10,7 @@ public class writeToFile {
     public static void writeToJsonFile(String data) {   
 
 		try {
-			FileWriter file = new FileWriter(outputFile)
+			FileWriter file = new FileWriter(outputFile);
 			file.write(data);
 			file.close();
 		}
