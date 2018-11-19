@@ -61,7 +61,7 @@ public class HtmlScraper {
     }
 
     private static String getDescription(Document document) throws IOException {
-		Element desc = document.selectFirst(".productText > p");
+		Element desc = document.selectFirst("div[class*='productText'] > p");
 		if(desc == null) {
 			desc = document.selectFirst(".memo > p");	
 		}

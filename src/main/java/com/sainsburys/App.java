@@ -9,6 +9,7 @@ import com.sainsburys.model.Product;
 import com.sainsburys.service.HtmlScraper;
 import com.sainsburys.util.Constants;
 import com.sainsburys.util.JsonMapper;
+import com.sainsburys.util.writeToFile;
 
 @SpringBootApplication
 public class App 
@@ -20,5 +21,7 @@ public class App
     	List<Product> products = HtmlScraper.getProducts(Constants.URL);
         String result = JsonMapper.jsonMapper(products);
         System.out.println(result);
+        
+        writeToFile.writeToJsonFile(result);
     }
 }
